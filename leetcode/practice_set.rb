@@ -45,3 +45,24 @@ def judge_circle(moves)
     return true if vert_offset == 0 && horiz_offset == 0
     false
 end
+
+# Q728: Self Dividing Numbers
+def self_dividing_numbers(left, right)
+    result = []
+    i = left
+    while i <= right
+        result << i if self_dividing_num?(i)
+        i += 1
+    end
+    result
+end
+
+def self_dividing_num?(num)
+    stringified_num = num.to_s
+    num_array = stringified_num.split("").map { |el| el.to_i }
+    return false if num_array.include?(0)
+    num_array.each do |ch|
+        return false unless num % ch == 0
+    end
+    true
+end
