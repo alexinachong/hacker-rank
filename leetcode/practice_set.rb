@@ -66,3 +66,15 @@ def self_dividing_num?(num)
     end
     true
 end
+
+# Q561: Array Partition I
+def array_pair_sum(nums)
+    sorted = nums.sort
+    i = 0
+    sum = 0
+    while i < sorted.length
+        sum += [sorted[i], sorted[i+1]].min
+        i += 2
+    end
+    sum
+end
