@@ -78,3 +78,48 @@ def array_pair_sum(nums)
     end
     sum
 end
+
+# Q804: Unique Morse Code Words
+require 'set'
+
+def unique_morse_representations(words)
+    alphabet = {
+        "a" => ".-",
+        "b" => "-...",
+        "c" => "-.-.",
+        "d" => "-..",
+        "e" => ".",
+        "f" => "..-.",
+        "g" => "--.",
+        "h" => "....",
+        "i" => "..",
+        "j" => ".---",
+        "k" => "-.-",
+        "l" => ".-..",
+        "m" => "--",
+        "n" => "-.",
+        "o" => "---",
+        "p" => ".--.",
+        "q" => "--.-",
+        "r" => ".-.",
+        "s" => "...",
+        "t" => "-",
+        "u" => "..-",
+        "v" => "...-",
+        "w" => ".--",
+        "x" => "-..-",
+        "y" => "-.--",
+        "z" => "--.."
+        }
+
+    result = Set.new
+    words.each do |word|
+        str = ""
+        word.each_char do |ch|
+            str += alphabet[ch]
+        end
+        result.add(str)
+    end
+
+    result.length
+end
