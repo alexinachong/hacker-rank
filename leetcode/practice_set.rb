@@ -123,3 +123,22 @@ def unique_morse_representations(words)
 
     result.length
 end
+
+# Q412: Fizz Buzz
+def fizz_buzz(n)
+    result = []
+    i = 1
+    while i <= n
+        if i % 15 == 0
+            result << "FizzBuzz"
+        elsif i % 3 == 0
+            result << "Fizz"
+        elsif i % 5 == 0
+            result << "Buzz"
+        else
+            result << i.to_s
+        end
+        i += 1
+    end
+    result
+end
