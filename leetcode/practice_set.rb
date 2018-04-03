@@ -142,3 +142,35 @@ def fizz_buzz(n)
     end
     result
 end
+
+# Q811: Subdomain Visit Count
+def subdomain_visits(cpdomains)
+    result = []
+    counts = Hash.new(0)
+    subdomain_counts = Hash.new(0)
+    pair = []
+
+    cpdomains.each do |domain_pair|
+        pair = domain_pair.split(" ")
+        counts[pair[1]] = pair[0].to_i
+    end
+
+    p counts
+
+    counts.keys.each do |domain|
+        subdomain = domain.split(".")
+        i = 0
+        while i < subdomain.length
+            sub = subdomain[i..-1].join(".")
+            subdomain_counts[sub] += counts[domain]
+            i += 1
+        end
+    end
+
+    subdomain_counts.each do |k, v|
+        restrung = "#{v} #{k}"
+        result << restrung
+    end
+
+    result
+end
