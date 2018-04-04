@@ -174,3 +174,12 @@ def subdomain_visits(cpdomains)
 
     result
 end
+
+# Q344: Reverse String
+def reverse_string(s)
+    result = []
+    s.each_char do |ch|
+        result.unshift(ch)
+    end
+    result.join("")
+end
