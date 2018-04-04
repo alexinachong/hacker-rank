@@ -183,3 +183,23 @@ def reverse_string(s)
     end
     result.join("")
 end
+
+# Q557: Reverse Words in a String III
+def reverse_words(s)
+    result_arr = []
+    words = s.split
+
+    words.each do |wd|
+        result_arr << reverse_substring(wd)
+    end
+
+    result_arr.join(" ")
+end
+
+def reverse_substring(str)
+    result = []
+    str.each_char do |ch|
+        result.unshift(ch)
+    end
+    result.join("")
+end
