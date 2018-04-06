@@ -1,3 +1,4 @@
+# EASY
 # Q1: Two Sum
 def two_sum(nums, target)
     i = 0
@@ -203,3 +204,5 @@ def reverse_substring(str)
     end
     result.join("")
 end
+
+# MEDIUM
