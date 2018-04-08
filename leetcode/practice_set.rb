@@ -206,3 +206,4 @@ def reverse_substring(str)
 end
 
 # MEDIUM
+# Q442: Find All Duplicates in an Array
