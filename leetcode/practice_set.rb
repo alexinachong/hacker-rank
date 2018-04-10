@@ -205,6 +205,12 @@ def reverse_substring(str)
     result.join("")
 end
 
+# Q620: Not Boring Movies
+# SELECT *
+# FROM cinema
+# WHERE id % 2 = 1 AND description != 'boring'
+# ORDER BY rating DESC
+
 # MEDIUM
 # Q442: Find All Duplicates in an Array
 
