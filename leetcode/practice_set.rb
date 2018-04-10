@@ -211,6 +211,12 @@ end
 # WHERE id % 2 = 1 AND description != 'boring'
 # ORDER BY rating DESC
 
+# Q183: Customers Who Never Order
+# SELECT Name AS 'Customers'
+# FROM Customers
+# LEFT JOIN Orders ON Customers.Id = Orders.CustomerId
+# WHERE Orders.Id IS NULL
+
 # MEDIUM
 # Q442: Find All Duplicates in an Array
 
