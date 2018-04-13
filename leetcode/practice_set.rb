@@ -221,3 +221,15 @@ end
 # Q442: Find All Duplicates in an Array
 
 # HARD
+# Q239: Sliding Window Maximum
+def max_sliding_window(nums, k)
+    result = []
+    return result if nums.empty?
+    i = 0
+    while i <= nums.length - k
+        range = nums[i...i + k]
+        result << range.max
+        i += 1
+    end
+    result
+end
