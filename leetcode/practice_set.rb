@@ -235,3 +235,5 @@ def max_sliding_window(nums, k)
     end
     result
 end
+
+# fads
