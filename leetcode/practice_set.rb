@@ -242,6 +242,29 @@ def is_toeplitz_matrix(matrix)
     true
 end
 
+# Q566: Reshape the Matrix
+def matrix_reshape(nums, r, c)
+    num_cells_current = nums.length * nums[0].length
+    num_cells_reshaped = r * c
+    return nums if num_cells_reshaped != num_cells_current
+
+    result = Array.new(r) { Array.new(c) }
+    flattened_nums = nums.flatten
+    i = 0
+    row_count = 0
+    while row_count < r
+        col_count = 0
+        while col_count < c
+            result[row_count][col_count] = flattened_nums[i]
+            i += 1
+            col_count += 1
+        end
+        row_count += 1
+    end
+
+    result
+end
+
 # MEDIUM
 # Q442: Find All Duplicates in an Array
 
