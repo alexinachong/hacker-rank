@@ -224,6 +224,24 @@ def distribute_candies(candies)
     uniques.length < max_candies_count ? uniques.length : max_candies_count
 end
 
+# Q766: Toeplitz Matrix
+def is_toeplitz_matrix(matrix)
+    i = 0
+    matrix_row = matrix.length
+    matrix_col = matrix[0].length
+    while i < matrix_row
+        j = 0
+        while j < matrix_col
+            if i + 1 < matrix_row && j + 1 < matrix_col && matrix[i][j] != matrix[i+1][j+1]
+                return false
+            end
+            j += 1
+        end
+        i += 1
+    end
+    true
+end
+
 # MEDIUM
 # Q442: Find All Duplicates in an Array
 
