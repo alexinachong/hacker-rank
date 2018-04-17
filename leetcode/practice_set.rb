@@ -217,6 +217,13 @@ end
 # LEFT JOIN Orders ON Customers.Id = Orders.CustomerId
 # WHERE Orders.Id IS NULL
 
+# Q575: Distribute Candies
+def distribute_candies(candies)
+    max_candies_count = candies.length / 2
+    uniques = candies.uniq
+    uniques.length < max_candies_count ? uniques.length : max_candies_count
+end
+
 # MEDIUM
 # Q442: Find All Duplicates in an Array
 
@@ -235,5 +242,3 @@ def max_sliding_window(nums, k)
     end
     result
 end
-
-# fads
