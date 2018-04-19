@@ -266,6 +266,12 @@ def matrix_reshape(nums, r, c)
 end
 
 # MEDIUM
+# Q215: Kth Largest Element in an Array
+def find_kth_largest(nums, k)
+    sorted = nums.sort
+	sorted[-k]
+end
+
 # Q442: Find All Duplicates in an Array
 
 # Q807: Max Increase to Keep City Skyline
