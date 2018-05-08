@@ -275,6 +275,27 @@ end
 # Q442: Find All Duplicates in an Array
 
 # Q807: Max Increase to Keep City Skyline
+def max_increase_keeping_skyline(grid)
+    result = 0
+
+    i = 0
+    while i < grid.length
+        j = 0
+        els_in_row = grid[i]
+        max_in_row = els_in_row.max
+        while j < grid[i].length
+            transposed = grid.transpose
+            els_in_col = transposed[j]
+            max_in_col = els_in_col.max
+            max_height_of_cell = [max_in_row, max_in_col].min
+            result += (max_height_of_cell - grid[i][j])
+            j += 1
+        end
+        i += 1
+    end
+
+    result
+end
 
 # HARD
 # Q239: Sliding Window Maximum
