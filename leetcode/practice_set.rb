@@ -265,6 +265,30 @@ def matrix_reshape(nums, r, c)
     result
 end
 
+# Q832: Flipping an Image
+def flip_and_invert_image(a)
+    flipped = []
+    a.each do |row|
+        flipped.push(row.reverse)
+    end
+
+    result = []
+
+    flipped.each do |row|
+        inner = []
+        row.each do |el|
+            if el == 0
+                inner << 1
+            else
+                inner << 0
+            end
+        end
+        result.push(inner)
+    end
+
+    result
+end
+
 # MEDIUM
 # Q215: Kth Largest Element in an Array
 def find_kth_largest(nums, k)
