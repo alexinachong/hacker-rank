@@ -322,6 +322,32 @@ def max_increase_keeping_skyline(grid)
 end
 
 # Q419: Battleships in a Board
+def count_battleships(board)
+    ship_count = 0
+    occupied_pos = Hash.new { |h, k| h[k] = [] } # [[0, 0], [0, 1], [2, 0]] -> { 0: [0, 1], 2: [0] }
+
+    board.each_with_index do |row, i|
+        row.each_with_index do |col, j|
+            if board[i][j] == "X"
+                if occupied_pos.keys.include?(i)
+                    if (occupied_pos[i][-1] - j).abs > 1
+                        ship_count += 1
+                    end
+                    occupied_pos[i].push(j)
+                elsif occupied_pos.keys.include?(i - 1)
+                    if !occupied_pos[i - 1].include?(j)
+                        ship_count += 1
+                    end
+                    occupied_pos[i].push(j)
+                else
+                    ship_count += 1
+                    occupied_pos[i].push(j)
+                end
+            end
+        end
+    end
+    ship_count
+end
 
 # HARD
 # Q239: Sliding Window Maximum
