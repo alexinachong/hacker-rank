@@ -362,3 +362,21 @@ def max_sliding_window(nums, k)
     end
     result
 end
+
+# Q765: Couples Holding Hands
+def min_swaps_couples(row)
+    swaps = 0
+    i = 0
+    j = i + 1
+    while i < row.length || j < row.length
+        if (row[i] % 2 == 0) && (row[j] - row[i] == 1)
+            i += 2
+            j += 2
+        elsif (row[i] & 2 == 1) && (row[i] - row[j] == 1)
+            i += 2
+            j += 2
+        end
+
+    end
+    swaps
+end
