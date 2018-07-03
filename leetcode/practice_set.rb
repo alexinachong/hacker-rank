@@ -349,6 +349,13 @@ def count_battleships(board)
     ship_count
 end
 
+# Q179: Largest Number
+def largest_number(nums)
+    nums.sort! {|a, b| b.to_s + a.to_s <=> a.to_s + b.to_s }
+
+    nums.join("").to_i.to_s
+end
+
 # HARD
 # Q239: Sliding Window Maximum
 def max_sliding_window(nums, k)
