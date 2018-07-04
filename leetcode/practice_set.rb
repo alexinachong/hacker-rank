@@ -289,6 +289,22 @@ def flip_and_invert_image(a)
     result
 end
 
+# Q852: Peak Index in a Mountain Array
+def peak_index_in_mountain_array(a)
+    current_max = a[0]
+    current_max_index = 0
+
+    i = 1
+    while i < a.length
+        if a[i] > current_max
+            current_max = a[i]
+            current_max_index = i
+        end
+        i += 1
+    end
+    current_max_index
+end
+
 # MEDIUM
 # Q215: Kth Largest Element in an Array
 def find_kth_largest(nums, k)
