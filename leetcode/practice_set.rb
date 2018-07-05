@@ -305,6 +305,42 @@ def peak_index_in_mountain_array(a)
     current_max_index
 end
 
+# Q821: Shortest Distance to a Character
+def shortest_to_char(s, c)
+    c_positions = []
+    distances = []
+
+    i = 0
+    while i < s.length
+        if s[i] == c
+            c_positions << i
+            distances[i] = 0
+        end
+        i += 1
+    end
+
+    j = 0
+    closest_c_position_idx = 0
+    while j < s.length
+        if (closest_c_position_idx + 1) < c_positions.length
+            dist_to_current_c = (j - c_positions[closest_c_position_idx]).abs
+            dist_to_next_c = (j - c_positions[closest_c_position_idx + 1]).abs
+            min_dist = [dist_to_current_c, dist_to_next_c].min
+            if min_dist == dist_to_next_c
+                closest_c_position_idx += 1
+            end
+            distances[j] = min_dist
+        else
+            dist_to_current_c = (j - c_positions[closest_c_position_idx]).abs
+            min_dist = dist_to_current_c
+            distances[j] = min_dist
+        end
+        j += 1
+    end
+
+    distances
+end
+
 # MEDIUM
 # Q215: Kth Largest Element in an Array
 def find_kth_largest(nums, k)
