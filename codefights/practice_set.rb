@@ -56,3 +56,22 @@
 #     ORDER BY
 #         wins ASC;
 # END
+
+# amendTheSentence
+def amendTheSentence(s)
+    cap_alpha = ("A".."Z").to_a
+    low_alpha = ("a".."z").to_a
+
+    result = ""
+
+    s.each_char do |ch|
+        if cap_alpha.include?(ch)
+            alpha_idx = cap_alpha.index(ch)
+            result << " #{low_alpha[alpha_idx]}"
+        else
+            result << ch
+        end
+    end
+
+    result.strip
+end
