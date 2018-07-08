@@ -44,5 +44,15 @@
 #     SELECT email
 #     FROM users
 #     WHERE role NOT IN ("admin", "premium")
-#
 #     ORDER BY email;
+
+# Volleyball Results
+# CREATE PROCEDURE volleyballResults()
+# BEGIN
+#     SELECT
+#         *
+#     FROM
+#         results
+#     ORDER BY
+#         wins ASC;
+# END
