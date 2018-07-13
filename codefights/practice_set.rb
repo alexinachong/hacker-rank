@@ -89,3 +89,17 @@ end
 def checkPalindrome(inputString)
     inputString == inputString.reverse
 end
+
+def adjacentElementsProduct(inputArray)
+    max = inputArray[0] * inputArray[1]
+
+    i = 0
+    while i < inputArray.length - 1
+        if inputArray[i] * inputArray[i + 1] > max
+            max = inputArray[i] * inputArray[i + 1]
+        end
+        i += 1
+    end
+
+    max
+end
