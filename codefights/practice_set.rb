@@ -85,3 +85,7 @@ def centuryFromYear(year)
         return century + 1
     end
 end
+
+def checkPalindrome(inputString)
+    inputString == inputString.reverse
+end
