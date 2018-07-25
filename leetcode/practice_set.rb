@@ -360,6 +360,25 @@ def to_lower_case(str)
     new_str
 end
 
+# Q872: Leaf-Similar Trees
+def leaf_similar(root1, root2)
+    find_leaves(root1) == find_leaves(root2)
+end
+
+def find_leaves(root)
+    return [root.val] if root.left.nil? && root.right.nil?
+
+    l = find_leaves(root.left) if root.left
+    r = find_leaves(root.right) if root.right
+    if l && !r
+        return l
+    elsif r && !l
+        return r
+    else
+        return l + r
+    end
+end
+
 # MEDIUM
 # Q215: Kth Largest Element in an Array
 def find_kth_largest(nums, k)
