@@ -341,6 +341,25 @@ def shortest_to_char(s, c)
     distances
 end
 
+# Q709: To Lower Case
+def to_lower_case(str)
+    lower = ("a".."z").to_a
+    upper = ("A".."Z").to_a
+
+    new_str = ""
+
+    str.each_char do |ch|
+        idx = upper.index(ch)
+        if idx
+            new_str << lower[idx]
+        else
+            new_str << ch
+        end
+    end
+
+    new_str
+end
+
 # MEDIUM
 # Q215: Kth Largest Element in an Array
 def find_kth_largest(nums, k)
