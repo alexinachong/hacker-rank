@@ -379,6 +379,48 @@ def find_leaves(root)
     end
 end
 
+# Q461: Hamming Distance
+def hamming_distance(x, y)
+    binary_x = int_to_bits_array(x)
+    binary_y = int_to_bits_array(y)
+
+    max_length = [binary_x.length, binary_y.length].max
+
+    while binary_x.length < max_length
+        binary_x.unshift(0)
+    end
+
+    while binary_y.length < max_length
+        binary_y.unshift(0)
+    end
+
+    different_bit_count = 0
+
+    i = 0
+    while i < binary_x.length
+        if binary_x[i] != binary_y[i]
+            different_bit_count += 1
+        end
+        i += 1
+    end
+
+    different_bit_count
+end
+
+def int_to_bits_array(num)
+    result = []
+    until num == 0
+        result.unshift(num % 2)
+        num = num / 2
+    end
+
+    if result.empty?
+        return [0]
+    else
+        return result
+    end
+end 
+
 # MEDIUM
 # Q215: Kth Largest Element in an Array
 def find_kth_largest(nums, k)
