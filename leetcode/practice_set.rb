@@ -419,7 +419,24 @@ def int_to_bits_array(num)
     else
         return result
     end
-end 
+end
+
+# Q867: Transpose Matrix
+def transpose(a)
+    transposed_array = Array.new(a[0].length) { Array.new(a.length) }
+
+    i = 0
+    while i < a.length
+        j = 0
+        while j < a[0].length
+            transposed_array[j][i] = a[i][j]
+            j += 1
+        end
+        i += 1
+    end
+
+    transposed_array
+end
 
 # MEDIUM
 # Q215: Kth Largest Element in an Array
