@@ -438,6 +438,19 @@ def transpose(a)
     transposed_array
 end
 
+# Q876: Middle of the Linked List
+def middle_node(head)
+    slow = head
+    fast = head
+
+    while fast && fast.next
+        slow = slow.next
+        fast = fast.next.next
+    end
+
+    slow
+end
+
 # MEDIUM
 # Q215: Kth Largest Element in an Array
 def find_kth_largest(nums, k)
