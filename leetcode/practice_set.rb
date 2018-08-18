@@ -516,7 +516,25 @@ def binarify(num)
     else
         return result
     end
-end 
+end
+
+# Q884: Uncommon Words from Two Sentences
+def uncommon_from_sentences(a, b)
+    word_counts = Hash.new(0)
+
+    a_words = a.split
+    b_words = b.split
+
+    a_words.each do |word|
+        word_counts[word] += 1
+    end
+
+    b_words.each do |word|
+        word_counts[word] += 1
+    end
+
+    word_counts.select { |k, v| v == 1 }.keys
+end
 
 # MEDIUM
 # Q215: Kth Largest Element in an Array
