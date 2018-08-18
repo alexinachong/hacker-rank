@@ -451,7 +451,7 @@ def middle_node(head)
     slow
 end
 
-# Q8096: Number of Lines to Write String
+# Q896: Number of Lines to Write String
 def number_of_lines(widths, s)
     alphabet = ("a".."z").to_a
     current_line_count = 0
@@ -471,6 +471,52 @@ def number_of_lines(widths, s)
 
     return [row_count, current_line_count]
 end
+
+# Q476: Number Complement
+def find_complement(num)
+    binarified_array = binarify(num)
+    reversed_array = []
+
+    # Convert 0s to 1s and vice versa
+    binarified_array.each do |el|
+        if el == 0
+            reversed_array << 1
+        else
+            reversed_array << 0
+        end
+    end
+
+    # De-binarify
+    return debinarify(reversed_array)
+end
+
+def debinarify(arr)
+    power = 0
+    total = 0
+
+    until arr.length == 0
+        last_num = arr.pop
+        total = total + (last_num * (2 ** power))
+        power += 1
+    end
+
+    total
+end
+
+def binarify(num)
+    result = []
+
+    until num == 0
+        result.unshift(num % 2)
+        num /= 2
+    end
+
+    if result.empty?
+        return [0]
+    else
+        return result
+    end
+end 
 
 # MEDIUM
 # Q215: Kth Largest Element in an Array
