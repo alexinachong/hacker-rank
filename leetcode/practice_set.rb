@@ -451,6 +451,27 @@ def middle_node(head)
     slow
 end
 
+# Q8096: Number of Lines to Write String
+def number_of_lines(widths, s)
+    alphabet = ("a".."z").to_a
+    current_line_count = 0
+    row_count = 1
+
+    s.each_char do |ch|
+        ch_index = alphabet.index(ch)
+        ch_width = widths[ch_index]
+
+        if current_line_count + ch_width > 100
+            row_count += 1
+            current_line_count = ch_width
+        else
+            current_line_count += ch_width
+        end
+    end
+
+    return [row_count, current_line_count]
+end
+
 # MEDIUM
 # Q215: Kth Largest Element in an Array
 def find_kth_largest(nums, k)
