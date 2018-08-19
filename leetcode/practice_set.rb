@@ -536,6 +536,8 @@ def uncommon_from_sentences(a, b)
     word_counts.select { |k, v| v == 1 }.keys
 end
 
+
+
 # MEDIUM
 # Q215: Kth Largest Element in an Array
 def find_kth_largest(nums, k)
@@ -601,6 +603,33 @@ def largest_number(nums)
     nums.sort! {|a, b| b.to_s + a.to_s <=> a.to_s + b.to_s }
 
     nums.join("").to_i.to_s
+end
+
+# Q535: Encode and Decode TinyURL
+URL_TO_CODE = {}
+CODE_TO_URL = {}
+
+def encode(longUrl)
+    code_options = ("a".."z").to_a + (0..9).to_a
+
+    # generate random code
+    code = "http://tinyurl.com/#{code_options.sample(6).join("")}"
+    until !CODE_TO_URL.include?(code)
+        code = "http://tinyurl.com/#{code_options.sample(6).join("")}"
+    end
+
+    URL_TO_CODE[longUrl] = code
+    CODE_TO_URL[code] = longUrl
+
+    code
+end
+
+# Decodes a shortened URL to its original URL.
+#
+# @param {string} shortUrl
+# @return {string}
+def decode(shortUrl)
+    CODE_TO_URL.include?(shortUrl) ? CODE_TO_URL[shortUrl] : "Does not exist"
 end
 
 # HARD
