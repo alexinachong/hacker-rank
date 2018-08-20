@@ -632,6 +632,35 @@ def decode(shortUrl)
     CODE_TO_URL.include?(shortUrl) ? CODE_TO_URL[shortUrl] : "Does not exist"
 end
 
+# Q791: Custom Sort String
+def custom_sort_string(s, t)
+    resorted_array = []
+
+    t_counts = Hash.new(0)
+
+    t.each_char do |ch|
+        t_counts[ch] += 1
+    end
+
+    s.each_char do |ch|
+        ch_count = t_counts[ch]
+        ch_count.times do
+            resorted_array << ch
+        end
+    end
+
+    extra_chs = t_counts.keys - s.chars
+
+    extra_chs.each do |ch|
+        ch_count = t_counts[ch]
+        ch_count.times do
+            resorted_array << ch
+        end
+    end
+
+    resorted_array.join("")
+end
+
 # HARD
 # Q239: Sliding Window Maximum
 def max_sliding_window(nums, k)
