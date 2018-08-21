@@ -536,6 +536,30 @@ def uncommon_from_sentences(a, b)
     word_counts.select { |k, v| v == 1 }.keys
 end
 
+# Q500: Keyboard Row
+def find_words(words)
+    result = []
+    rows = {
+        0 => "qwertyuiop",
+        1 => "asdfghjkl",
+        2 => "zxcvbnm"
+        }
+
+    words.each do |word|
+        if rows[0].include?(word[0].downcase)
+            row_num = 0
+        elsif rows[1].include?(word[0].downcase)
+            row_num = 1
+        else
+            row_num = 2
+        end
+
+        result << word if word.downcase.chars.all? { |ch| rows[row_num].include?(ch) }
+    end
+
+    result
+end
+
 
 
 # MEDIUM
