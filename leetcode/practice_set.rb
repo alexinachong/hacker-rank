@@ -1,3 +1,33 @@
+# Non-Leetcode Additional Practice
+# A string with the characters [,],{,},(,) is said to be well-formed if
+# the different types of brackets match in the correct order.
+
+# For example, ([]){()} is well-formed, but [(]{)} is not.
+
+# Write a function to test whether a string is well-formed.
+def check_brackets(string)
+  seen = []
+
+  brackets = {
+    "(" => ")",
+    "[" => "]",
+    "{" => "}"
+    }
+
+  string.each_char do |ch|
+    if brackets.keys.include?(ch)
+      seen << ch
+    elsif seen.empty? || brackets[seen.pop] != ch
+      return false
+    end
+  end
+
+  true
+end
+
+check_brackets("([]){()}") == true
+check_brackets("[(]{)}") == false
+
 # EASY
 # Q1: Two Sum
 def two_sum(nums, target)
