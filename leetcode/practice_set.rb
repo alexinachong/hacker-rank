@@ -570,6 +570,9 @@ def find_kth_largest(nums, k)
 end
 
 # Q442: Find All Duplicates in an Array
+def find_duplicates(nums)
+
+end
 
 # Q807: Max Increase to Keep City Skyline
 def max_increase_keeping_skyline(grid)
