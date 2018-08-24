@@ -601,7 +601,11 @@ end
 
 # Q442: Find All Duplicates in an Array
 def find_duplicates(nums)
+    repeats = []
 
+    nums.each_with_index do |num, i|
+
+    end
 end
 
 # Q807: Max Increase to Keep City Skyline
