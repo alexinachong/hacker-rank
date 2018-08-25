@@ -603,9 +603,15 @@ end
 def find_duplicates(nums)
     repeats = []
 
-    nums.each_with_index do |num, i|
-
+    nums.each do |num|
+        if nums[num.abs - 1] < 0
+            repeats << num.abs
+        else
+            nums[num.abs - 1] *= -1
+        end
     end
+
+    repeats
 end
 
 # Q807: Max Increase to Keep City Skyline
