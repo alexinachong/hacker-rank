@@ -728,6 +728,48 @@ def custom_sort_string(s, t)
     resorted_array.join("")
 end
 
+# Q890: Find and Replace Pattern
+def find_and_replace_pattern(words, pattern)
+    matching = []
+
+    # Normalize pattern to always begin with "a"
+    pattern_ch_val = "a"
+    pattern_keys = Hash.new(pattern_ch_val)
+    pattern_normalized = ""
+
+    pattern.each_char do |ch|
+        if pattern_keys.key?(ch)
+            pattern_normalized += pattern_keys[ch]
+        else
+            pattern_keys[ch] = pattern_ch_val
+            pattern_normalized += pattern_keys[ch]
+            pattern_ch_val = (pattern_ch_val.ord + 1).chr
+        end
+    end
+
+    # Create a hash for each word mapping ch to normalized ch pattern
+    # Then construct normalized pattern string
+    words.each do |word|
+        pattern_val = "a"
+        keys = Hash.new(pattern_val)
+        word_pattern = ""
+
+        word.each_char do |ch|
+            if keys.key?(ch)
+                word_pattern += keys[ch]
+            else
+                keys[ch] = pattern_val
+                word_pattern += keys[ch]
+                pattern_val = (pattern_val.ord + 1).chr
+            end
+        end
+        # Compare normalized pattern to constructed word pattern string
+        matching << word if pattern_normalized == word_pattern
+    end
+
+    matching
+end
+
 # HARD
 # Q239: Sliding Window Maximum
 def max_sliding_window(nums, k)
