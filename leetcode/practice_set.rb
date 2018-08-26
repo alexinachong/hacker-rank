@@ -770,6 +770,23 @@ def find_and_replace_pattern(words, pattern)
     matching
 end
 
+# Q814: Binary Tree Pruning
+def prune_tree(root)
+    # matches up with check for children values below
+    return root if root.nil?
+
+    # recursive call on both sides of tree
+    root.left = prune_tree(root.left)
+    root.right = prune_tree(root.right)
+
+    # if no children and node val is 0, set root to nil (remove node)
+    if root.left.nil? && root.right.nil? && root.val == 0
+        return nil
+    end
+
+    root
+end
+
 # HARD
 # Q239: Sliding Window Maximum
 def max_sliding_window(nums, k)
