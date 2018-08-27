@@ -787,6 +787,32 @@ def prune_tree(root)
     root
 end
 
+# Q861: Score After Flipping Matrix
+def matrix_score(a)
+    row_ct = a.length
+    col_ct = a[0].length
+
+    # Flip all rows so that they all begin with 1
+    i = 0
+    while i < row_ct
+        if a[i][0] == 0
+            j = 0
+            while j < col_ct
+                if a[i][j] == 0
+                    a[i][j] = 1
+                else
+                    a[i][j] = 0
+                end
+                j += 1
+            end
+        end
+        i += 1
+    end
+
+
+
+end
+
 # HARD
 # Q239: Sliding Window Maximum
 def max_sliding_window(nums, k)
