@@ -809,8 +809,52 @@ def matrix_score(a)
         i += 1
     end
 
+    # p "first flip: #{a}"
 
+    # Flip columns to maximize number of 1s
+    col_i = 1
+    while col_i < col_ct
+        row_i = 0
+        one_count = 0
+        zero_count = 0
+        while row_i < row_ct
+            if a[row_i][col_i] == 1
+                one_count += 1
+            else
+                zero_count += 1
+            end
+            row_i += 1
+        end
 
+        # p "col #: #{col_i}"
+        # p "one_count: #{one_count}"
+        # p "zero_count: #{zero_count}"
+
+        if zero_count > one_count
+            row_i = 0
+            while row_i < row_ct
+                if a[row_i][col_i] == 1
+                    a[row_i][col_i] = 0
+                else
+                    a[row_i][col_i] = 1
+                end
+                row_i += 1
+            end
+        end
+
+        # p "second flip: #{a}"
+
+        col_i += 1
+    end
+
+    # Calculate new value of matrix
+    sum = 0
+    a.each do |row|
+        row_val = row.join("").to_i(2)
+        sum += row_val
+    end
+
+    sum
 end
 
 # HARD
