@@ -857,6 +857,19 @@ def matrix_score(a)
     sum
 end
 
+# Q763: Partition Labels
+def partition_labels(s)
+    ch_indices = Hash.new { |h, k| h[k] = [] }
+
+    i = 0
+    while i < s.length
+        ch_indices[s[i]] << i
+        i += 1
+    end
+
+
+end
+
 # HARD
 # Q239: Sliding Window Maximum
 def max_sliding_window(nums, k)
