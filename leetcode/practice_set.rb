@@ -859,6 +859,7 @@ end
 
 # Q763: Partition Labels
 def partition_labels(s)
+    window_indices = []
     ch_indices = Hash.new { |h, k| h[k] = [] }
 
     i = 0
@@ -867,7 +868,42 @@ def partition_labels(s)
         i += 1
     end
 
+    relevant_ch_occurrences = Hash.new
 
+    ch_indices.keys.each do |key|
+        relevant_ch_occurrences[key] = [ch_indices[key].first, ch_indices[key].last]
+    end
+
+    sorted_ch_windows = relevant_ch_occurrences.sort_by { |k, v| v }
+
+    p sorted_ch_windows
+
+    window_start = sorted_ch_windows[0][1][0]
+    window_end = sorted_ch_windows[0][1][1]
+
+    j = 1
+    while j < sorted_ch_windows.length
+        first_occur_ch = sorted_ch_windows[j][1][0]
+        last_occur_ch = sorted_ch_windows[j][1][1]
+        if first_occur_ch > window_end || j == sorted_ch_windows.length - 1
+            window_indices.push([window_start, window_end])
+            window_start = first_occur_ch
+            window_end = last_occur_ch
+        elsif last_occur_ch > window_end
+            window_end = last_occur_ch
+        end
+        j += 1
+    end
+
+    p window_indices
+
+    window_sizes = []
+
+    window_indices.each do |range|
+        window_sizes << ((range[1] - range[0]) + 1)
+    end
+
+    window_sizes
 end
 
 # HARD
