@@ -590,6 +590,46 @@ def find_words(words)
     result
 end
 
+# Q868: Binary Gap
+def binary_gap(n)
+    binary_arr = to_binary_array(n)
+
+    max_distance = 0
+    last_seen = nil
+    current_pos = nil
+
+    i = 0
+    while i < binary_arr.length
+        if binary_arr[i] == 1 && last_seen.nil?
+            last_seen = i
+        elsif binary_arr[i] == 1
+            distance = i - last_seen
+            if distance > max_distance
+                max_distance = distance
+            end
+            last_seen = i
+        end
+
+        i += 1
+    end
+
+    max_distance
+end
+
+def to_binary_array(n)
+    arr = []
+
+    until n == 0
+        arr.unshift(n % 2)
+        n /= 2
+    end
+
+    if arr.empty?
+        return [0]
+    else
+        return arr
+    end
+end 
 
 
 # MEDIUM
