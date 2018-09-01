@@ -629,7 +629,28 @@ def to_binary_array(n)
     else
         return arr
     end
-end 
+end
+
+# Q463: Island Perimeter (TODO)
+def island_perimeter(grid)
+    island_squares = []
+    perimeter = 0
+
+    i = 0
+    while i < grid.length
+        j = 0
+        while j < grid[i].length
+            if grid[i][j] == 1 && !island_squares.include?([i, j-1]) && !island_squares.include?([i-1, j])
+                island_squares.push([i, j])
+                perimeter += 4
+            end
+            j += 1
+        end
+        i += 1
+    end
+
+    perimeter
+end
 
 
 # MEDIUM
