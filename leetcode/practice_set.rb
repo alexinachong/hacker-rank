@@ -937,7 +937,7 @@ def partition_labels(s)
 
     sorted_ch_windows = relevant_ch_occurrences.sort_by { |k, v| v }
 
-    p sorted_ch_windows
+    # p sorted_ch_windows
 
     window_start = sorted_ch_windows[0][1][0]
     window_end = sorted_ch_windows[0][1][1]
@@ -946,7 +946,7 @@ def partition_labels(s)
     while j < sorted_ch_windows.length
         first_occur_ch = sorted_ch_windows[j][1][0]
         last_occur_ch = sorted_ch_windows[j][1][1]
-        if first_occur_ch > window_end || j == sorted_ch_windows.length - 1
+        if first_occur_ch > window_end
             window_indices.push([window_start, window_end])
             window_start = first_occur_ch
             window_end = last_occur_ch
@@ -956,7 +956,9 @@ def partition_labels(s)
         j += 1
     end
 
-    p window_indices
+    window_indices.push([window_start, window_end]) if !window_indices.include?([window_start, window_end])
+
+    # p window_indices
 
     window_sizes = []
 
