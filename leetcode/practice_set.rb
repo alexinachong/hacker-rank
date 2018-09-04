@@ -652,6 +652,28 @@ def island_perimeter(grid)
     perimeter
 end
 
+# Q896: Monotonic Array
+def is_monotonic(a)
+    increasing = false
+    decreasing = false
+
+    i = 1
+
+    while i < a.length
+        if increasing && decreasing
+            return false
+        elsif a[i] < a[i - 1]
+            decreasing = true
+        elsif a[i] > a[i - 1]
+            increasing = true
+        end
+
+        i += 1
+    end
+
+    increasing && decreasing ? false : true
+end
+
 
 # MEDIUM
 # Q215: Kth Largest Element in an Array
