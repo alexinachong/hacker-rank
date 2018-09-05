@@ -991,6 +991,29 @@ def partition_labels(s)
     window_sizes
 end
 
+# Q537: Complex Number Multiplication
+def complex_number_multiply(a, b)
+    a_format = a.split("+") # [1, 1i] [1, 1i]
+    b_format = b.split("+") # [1, -1i] [1, -1i]
+
+    a_isolate_i_coeff = a_format[1].split("i")[0]
+    b_isolate_i_coeff = b_format[1].split("i")[0]
+
+    mult_consts_first = a_format[0].to_i * b_format[0].to_i # 1 / 1
+    mult_c1_i2_outside = a_format[0].to_i * b_isolate_i_coeff.to_i # 1 / -1 (add i)
+    mult_c2_i1_inside = a_isolate_i_coeff.to_i * b_format[0].to_i # 1 / -1 (add i)
+    mult_imags_last = a_isolate_i_coeff.to_i * b_isolate_i_coeff.to_i # 1 / 1 (add i^2 = *-1)
+
+    add_outside_inside = mult_c1_i2_outside + mult_c2_i1_inside # 2 / -2 (add i)
+    convert_imag_last = mult_imags_last * -1 # -1 / -1
+
+    add_consts_imags = mult_consts_first + convert_imag_last # 0 / 0
+
+    output_string = "#{add_consts_imags}+#{add_outside_inside}i" # "0+2i" / "0+-2i"
+
+    output_string
+end
+
 # HARD
 # Q239: Sliding Window Maximum
 def max_sliding_window(nums, k)
