@@ -695,6 +695,14 @@ def cal_points(ops)
     valid_scores.reduce(:+)
 end
 
+# Q136: Single Number
+def single_number(nums)
+    result = 0
+    nums.each do |num|
+       result = result ^ num
+    end
+    result
+end
 
 # MEDIUM
 # Q215: Kth Largest Element in an Array
