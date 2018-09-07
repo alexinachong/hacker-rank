@@ -675,7 +675,25 @@ def is_monotonic(a)
 end
 
 # Q682: Baseball Game
+def cal_points(ops)
+    valid_scores = []
 
+    ops.each do |op|
+       if op == "+"
+           score = valid_scores[-1] + valid_scores[-2]
+           valid_scores << score
+       elsif op == "C"
+           valid_scores.pop
+       elsif op == "D"
+           score = valid_scores[-1] * 2
+           valid_scores << score
+       else
+           valid_scores << op.to_i
+       end
+    end
+
+    valid_scores.reduce(:+)
+end
 
 
 # MEDIUM
