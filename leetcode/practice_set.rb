@@ -704,6 +704,13 @@ def single_number(nums)
     result
 end
 
+# Q693: Binary Number with Alternating Bits
+def has_alternating_bits(n)
+    binarified = n.to_s(2)
+
+    !binarified.include?("00") && !binarified.include?("11")
+end
+
 # MEDIUM
 # Q215: Kth Largest Element in an Array
 def find_kth_largest(nums, k)
