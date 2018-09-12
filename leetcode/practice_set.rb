@@ -1068,6 +1068,27 @@ def frequency_sort(s)
     freq_string
 end
 
+# Q406: Queue Reconstruction by Height
+def reconstruct_queue(people)
+    people_lg = people.length
+    sorted = people.sort
+    queue = []
+
+    until queue.length == people_lg
+        current_max_height = sorted.last[0]
+
+        relevant_els = sorted.select { |h, k| h == current_max_height }
+
+        relevant_els.each do |person|
+            queue.insert(person[1], person)
+        end
+
+        sorted.pop(relevant_els.length)
+    end
+
+    queue
+end
+
 
 # HARD
 # Q239: Sliding Window Maximum
