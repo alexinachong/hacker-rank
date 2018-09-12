@@ -1051,7 +1051,22 @@ def complex_number_multiply(a, b)
 end
 
 # Q451: Sort Characters By Frequency
+def frequency_sort(s)
+    freq_string = ""
+    letter_counts = Hash.new(0)
 
+    s.each_char do |ch|
+        letter_counts[ch] += 1
+    end
+
+    desc_counts = letter_counts.sort_by { |k, v| v }.reverse
+
+    desc_counts.each do |letter_pair|
+        freq_string += (letter_pair[0] * letter_pair[1])
+    end
+
+    freq_string
+end
 
 
 # HARD
