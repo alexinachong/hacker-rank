@@ -1102,6 +1102,23 @@ def min_moves2(nums)
     moves
 end
 
+# Q94: Binary Tree Inorder Traversal
+def inorder_traversal(root)
+    return [] if root.nil?
+    left = []
+    right = []
+
+    if root.left
+        left = inorder_traversal(root.left)
+    end
+
+    if root.right
+        right = inorder_traversal(root.right)
+    end
+
+    left + [root.val] + right
+end
+
 
 # HARD
 # Q239: Sliding Window Maximum
