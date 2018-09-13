@@ -1089,6 +1089,19 @@ def reconstruct_queue(people)
     queue
 end
 
+# Q462: Minimum Moves to Equal Array Elements II
+def min_moves2(nums)
+    sorted = nums.sort
+    median = sorted[sorted.length / 2]
+
+    moves = 0
+    sorted.each do |n|
+        moves += (n - median).abs
+    end
+
+    moves
+end
+
 
 # HARD
 # Q239: Sliding Window Maximum
