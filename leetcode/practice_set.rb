@@ -1119,6 +1119,29 @@ def inorder_traversal(root)
     left + [root.val] + right
 end
 
+# Q238: Product of Array Except Self
+def product_except_self(nums)
+    all_products = []
+    prod_so_far_preceding = 1
+
+    i = 0
+    while i < nums.length
+        all_products << prod_so_far_preceding
+        prod_so_far_preceding *= nums[i]
+        i += 1
+    end
+
+    prod_so_far_following = 1
+    j = nums.length - 1
+    while j >= 0
+        all_products[j] *= prod_so_far_following
+        prod_so_far_following *= nums[j]
+        j -= 1
+    end
+
+    all_products
+end
+
 
 # HARD
 # Q239: Sliding Window Maximum
