@@ -711,6 +711,13 @@ def has_alternating_bits(n)
     !binarified.include?("00") && !binarified.include?("11")
 end
 
+# Q521: Longest Uncommon Subsequence I
+def find_lu_slength(a, b)
+    a == b ? -1 : [a.length, b.length].max
+end
+
+
+
 # MEDIUM
 # Q215: Kth Largest Element in an Array
 def find_kth_largest(nums, k)
