@@ -1149,6 +1149,21 @@ def product_except_self(nums)
     all_products
 end
 
+# Q701: Insert into a Binary Search Tree
+def insert_into_bst(root, val)
+    return TreeNode.new(val) if root.nil?
+
+    if val < root.val
+        updated_left = insert_into_bst(root.left, val)
+        root.left = updated_left
+    else
+        updated_right = insert_into_bst(root.right, val)
+        root.right = updated_right
+    end
+
+    return root
+end
+
 
 # HARD
 # Q239: Sliding Window Maximum
