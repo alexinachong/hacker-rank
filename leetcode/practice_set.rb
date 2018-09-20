@@ -1164,6 +1164,21 @@ def insert_into_bst(root, val)
     return root
 end
 
+# Q319: Bulb Switcher
+def bulb_switch(n)
+    # All numbers (except square numbers) have an even number of factors
+    # This means that each pair of factors will revert a bulb's status back to off
+
+    square_nums = []
+    i = 1
+    while i**2 <= n
+        square_nums << i**2
+        i += 1
+    end
+
+    square_nums.length
+end
+
 
 # HARD
 # Q239: Sliding Window Maximum
