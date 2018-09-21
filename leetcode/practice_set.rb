@@ -716,6 +716,29 @@ def find_lu_slength(a, b)
     a == b ? -1 : [a.length, b.length].max
 end
 
+# Q905: Sort Array by Parity
+def sort_array_by_parity(a)
+    left = 0
+    right = a.length - 1
+
+    while left < right
+        if (a[left] % 2 == 1) && (a[right] % 2 == 0) # left is odd, right is even (swap)
+            a[left], a[right] = a[right], a[left]
+            left += 1
+            right -= 1
+        elsif (a[left] % 2 == 0) && (a[right] % 2 == 0) # left is even, right is even (inc left)
+            left += 1
+        elsif (a[left] % 2 == 1) && (a[right] % 2 == 1) # left is odd, right is odd (dec right)
+            right -=1
+        else # left is even, right is odd (correct place, move on)
+            left += 1
+            right -= 1
+        end
+    end
+
+    a
+end
+
 
 
 # MEDIUM
