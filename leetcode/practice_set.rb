@@ -739,6 +739,19 @@ def sort_array_by_parity(a)
     a
 end
 
+# Q700: Search in a Binary Search Tree
+def search_bst(root, val)
+    return [] if root.nil?
+
+    if root.val == val
+        return root
+    elsif val < root.val
+        return search_bst(root.left, val)
+    elsif val > root.val
+        return search_bst(root.right, val)
+    end
+end
+
 
 
 # MEDIUM
