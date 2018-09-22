@@ -752,6 +752,16 @@ def search_bst(root, val)
     end
 end
 
+# Q258: Add Digits
+def add_digits(num)
+    while num >= 10
+        last_digit = num % 10
+        num = num / 10
+        num += last_digit
+    end
+    num
+end
+
 
 
 # MEDIUM
