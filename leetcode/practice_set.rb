@@ -773,6 +773,29 @@ def is_power_of_three(n)
     n == 1 ? true : false
 end
 
+# Q20: Valid Parentheses
+def is_valid(s)
+    options = {
+        "(" => ")",
+        "[" => "]",
+        "{" => "}"
+        }
+
+    stack = []
+
+    s.each_char do |ch|
+        if ["(", "[", "{"].include?(ch)
+            stack << ch
+        elsif stack[-1] == options.key(ch)
+            stack.pop
+        else
+            return false
+        end
+    end
+
+    stack.empty? ? true : false
+end
+
 
 
 # MEDIUM
