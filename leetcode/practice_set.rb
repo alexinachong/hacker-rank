@@ -796,6 +796,8 @@ def is_valid(s)
     stack.empty? ? true : false
 end
 
+# Q717: 1-bit and 2-bit Characters
+
 
 
 # MEDIUM
