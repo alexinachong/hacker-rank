@@ -797,7 +797,22 @@ def is_valid(s)
 end
 
 # Q717: 1-bit and 2-bit Characters
+def is_one_bit_character(bits)
+    i = 0
+    until bits.length < 3
+        if bits[i] == 1
+            bits.shift(2)
+        else
+            bits.shift(1)
+        end
+    end
 
+    if bits == [0, 0] || bits.length == 1
+        return true
+    else
+        return false
+    end
+end
 
 
 # MEDIUM
