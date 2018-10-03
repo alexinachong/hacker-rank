@@ -814,6 +814,25 @@ def is_one_bit_character(bits)
     end
 end
 
+# Q383: Ransom Note
+def can_construct(ransom_note, magazine)
+    magazine_chars = Hash.new(0)
+
+    magazine.each_char do |ch|
+        magazine_chars[ch] += 1
+    end
+
+    ransom_note.each_char do |ch|
+        if magazine_chars[ch] > 0
+            magazine_chars[ch] -= 1
+        else
+            return false
+        end
+    end
+
+    true
+end
+
 
 # MEDIUM
 # Q215: Kth Largest Element in an Array
