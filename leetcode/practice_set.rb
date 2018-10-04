@@ -833,6 +833,25 @@ def can_construct(ransom_note, magazine)
     true
 end
 
+# Q598: Range Addition II
+def max_count(m, n, ops)
+    return m * n if ops.empty?
+
+    min_row = m
+    min_col = n
+    ops.each do |op|
+        if op[0] < min_row
+            min_row = op[0]
+        end
+
+        if op[1] < min_col
+            min_col = op[1]
+        end
+    end
+
+    return min_row * min_col
+end
+
 
 # MEDIUM
 # Q215: Kth Largest Element in an Array
