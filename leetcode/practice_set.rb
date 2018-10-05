@@ -852,6 +852,40 @@ def max_count(m, n, ops)
     return min_row * min_col
 end
 
+# Q697: Degree of an Array
+def find_shortest_sub_array(nums)
+    num_pos = Hash.new { |h, k| h[k] = [] }
+
+    nums.each_with_index do |n, i|
+        if !num_pos[n].empty?
+            num_pos[n][0] = num_pos[n][0] + 1
+            num_pos[n][2] = i
+        else
+            num_pos[n][0] = 1
+            num_pos[n][1] = i
+            num_pos[n][2] = i
+        end
+    end
+
+    max_freq = num_pos.values.sort_by { |v| v[0] }.last[0]
+
+    max_nums = num_pos.select { |k, v| v[0] == max_freq }
+    if max_nums.length == 1
+        return max_nums.values[0][2] - max_nums.values[0][1] + 1
+    else
+        smallest_diff = nil
+        max_nums.keys.each do |k|
+            diff = max_nums[k][2] - max_nums[k][1] + 1
+            if smallest_diff.nil? || diff < smallest_diff
+                smallest_diff = diff
+            end
+        end
+        return smallest_diff
+    end
+end
+
+
+
 
 # MEDIUM
 # Q215: Kth Largest Element in an Array
