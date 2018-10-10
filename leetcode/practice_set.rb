@@ -884,7 +884,13 @@ def find_shortest_sub_array(nums)
     end
 end
 
+# Q217: Contains Duplicate
+require 'set'
 
+def contains_duplicate(nums)
+    return false if nums.length == Set.new(nums).length
+    true
+end
 
 
 # MEDIUM
