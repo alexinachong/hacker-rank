@@ -892,6 +892,16 @@ def contains_duplicate(nums)
     true
 end
 
+# Q796: Rotate String
+def rotate_string(a, b)
+    return true if a == b
+    return false if a.length != b.length
+
+    full_a_loop = a + a
+
+    full_a_loop.include?(b) ? true : false
+end
+
 
 # MEDIUM
 # Q215: Kth Largest Element in an Array
