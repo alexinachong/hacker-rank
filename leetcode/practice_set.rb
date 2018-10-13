@@ -902,6 +902,28 @@ def rotate_string(a, b)
     full_a_loop.include?(b) ? true : false
 end
 
+def longest_palindrome(s)
+    ch_counts = Hash.new(0)
+
+    s.each_char do |ch|
+        ch_counts[ch] += 1
+    end
+
+    even_counts = ch_counts.select { |k, v| v % 2 == 0 }.values.reduce(:+)
+
+    odd_counts = ch_counts.select { |k, v| v % 2 == 1 }
+
+    if even_counts && odd_counts
+        return even_counts + 1
+    elsif even_counts
+        return even_counts
+    elsif odd_counts
+        return odd_counts
+    else
+        return 0
+    end
+end
+
 
 # MEDIUM
 # Q215: Kth Largest Element in an Array
