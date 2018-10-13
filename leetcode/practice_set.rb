@@ -902,6 +902,7 @@ def rotate_string(a, b)
     full_a_loop.include?(b) ? true : false
 end
 
+# Q409: Longest Palindrome 
 def longest_palindrome(s)
     ch_counts = Hash.new(0)
 
@@ -909,16 +910,18 @@ def longest_palindrome(s)
         ch_counts[ch] += 1
     end
 
-    even_counts = ch_counts.select { |k, v| v % 2 == 0 }.values.reduce(:+)
+    even_counts_sum = ch_counts.select { |k, v| v % 2 == 0 }.values.reduce(:+)
 
-    odd_counts = ch_counts.select { |k, v| v % 2 == 1 }
+    odd_counts = ch_counts.select { |k, v| v % 2 == 1 }.values
 
-    if even_counts && odd_counts
-        return even_counts + 1
-    elsif even_counts
-        return even_counts
-    elsif odd_counts
-        return odd_counts
+    if even_counts_sum && odd_counts.length > 0
+        odd_counts_sum = odd_counts.reduce(:+) - odd_counts.length + 1
+        return even_counts_sum + odd_counts_sum
+    elsif even_counts_sum
+        return even_counts_sum
+    elsif odd_counts.length > 0
+        odd_counts_sum = odd_counts.reduce(:+) - odd_counts.length + 1
+        return odd_counts_sum
     else
         return 0
     end
