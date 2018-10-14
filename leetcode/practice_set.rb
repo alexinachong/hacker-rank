@@ -902,7 +902,7 @@ def rotate_string(a, b)
     full_a_loop.include?(b) ? true : false
 end
 
-# Q409: Longest Palindrome 
+# Q409: Longest Palindrome
 def longest_palindrome(s)
     ch_counts = Hash.new(0)
 
@@ -924,6 +924,20 @@ def longest_palindrome(s)
         return odd_counts_sum
     else
         return 0
+    end
+end
+
+# Q : Two Sum II
+def two_sum(numbers, target)
+    indices_hash = Hash.new
+
+    numbers.each_with_index do |n, i|
+        comp = target - n
+        if indices_hash[comp]
+            return [i + 1, indices_hash[comp] + 1].sort
+        else
+            indices_hash[n] = i
+        end
     end
 end
 
